@@ -1,0 +1,57 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "omg-lol",
+  "title": "omg.lol",
+  "description": "Create, read, and update data in your omg.lol account.",
+  "icon": "command-icon.png",
+  "author": "danpalmer",
+  "categories": [
+    "Communication",
+    "Fun",
+    "Web"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "create-paste",
+      "title": "Create Paste",
+      "description": "",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "username",
+      "required": true,
+      "title": "Username",
+      "description": "Your omg.lol username, the first part of your @omg.lol email address",
+      "type": "textfield"
+    },
+    {
+      "name": "apiKey",
+      "required": true,
+      "title": "API Key",
+      "description": "Your omg.lol API key, found at https://home.omg.lol/account",
+      "type": "password"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.64.4",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.6",
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.27",
+    "eslint": "^8.51.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
