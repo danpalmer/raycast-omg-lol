@@ -32,6 +32,13 @@
       "description": "View items in your omg.lol pastebin, and copy or delete them.",
       "mode": "view",
       "icon": "pastebin.png"
+    },
+    {
+      "name": "view-purls",
+      "title": "View PURLs",
+      "description": "View PURLs in your omg.lol account.",
+      "mode": "view",
+      "icon": "purl.png"
     }
   ],
   "preferences": [

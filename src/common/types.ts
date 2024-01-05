@@ -8,6 +8,14 @@ export interface Paste {
     title: string;
     content: string;
     modified_on: number;
+    listed: number | undefined;
+}
+
+export interface PURL {
+    name: string;
+    url: string;
+    counter: number | undefined;
+    listed: number | undefined;
 }
 
 // Request types
@@ -20,4 +28,14 @@ export interface PasteDeleteResponse extends WithMessage {
 
 export interface PasteListResponse  extends WithMessage {
     pastebin: Paste[];
+}
+
+export interface PURLCreateResponse extends WithMessage {
+}
+
+export interface PURLDeleteResponse extends WithMessage {
+}
+
+export interface PURLListResponse extends WithMessage {
+    purls: PURL[];
 }
