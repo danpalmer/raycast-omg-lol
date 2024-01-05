@@ -31,6 +31,8 @@ export interface PasteListResponse  extends WithMessage {
 }
 
 export interface PURLCreateResponse extends WithMessage {
+    name: string;
+    url: string;
 }
 
 export interface PURLDeleteResponse extends WithMessage {

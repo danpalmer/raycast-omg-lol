@@ -34,6 +34,13 @@
       "icon": "pastebin.png"
     },
     {
+      "name": "create-purl",
+      "title": "Create PURL",
+      "description": "Create a new PURL in your omg.lol account.",
+      "mode": "view",
+      "icon": "purl.png"
+    },
+    {
       "name": "view-purls",
       "title": "View PURLs",
       "description": "View PURLs in your omg.lol account.",

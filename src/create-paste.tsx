@@ -32,7 +32,7 @@ export default function Command() {
       listed: values.listed ? "on" : null,
     });
 
-    await showHUD(`Copied to clipboard!`, {
+    await showHUD(`Copied URL to clipboard!`, {
       clearRootSearch: true,
       popToRootType: PopToRootType.Immediate,
     });
