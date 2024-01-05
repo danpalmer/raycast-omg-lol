@@ -1,6 +1,5 @@
-import { showHUD, PopToRootType } from "@raycast/api";
+import { showHUD, PopToRootType, Clipboard } from "@raycast/api";
 import { POST } from "./common/api";
-import { Clipboard } from "@raycast/api";
 import { PasteCreateResponse } from "./common/types";
 import { getPrefs } from "./common/prefs";
 import { generateRandomTitle } from "./common/util";

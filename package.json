@@ -25,6 +25,13 @@
       "description": "Create a new paste in your omg.lol pastebin with the current clipboard content and a random title.",
       "mode": "no-view",
       "icon": "pastebin.png"
+    },
+    {
+      "name": "view-pastebin",
+      "title": "View Pastebin",
+      "description": "View items in your omg.lol pastebin, and copy or delete them.",
+      "mode": "view",
+      "icon": "pastebin.png"
     }
   ],
   "preferences": [
