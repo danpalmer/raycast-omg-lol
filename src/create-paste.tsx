@@ -43,7 +43,9 @@ export default function Command() {
     });
 
     const prefs = getPrefs();
-    Clipboard.copy(`https://paste.lol/${prefs.username}/${response.title}`);
+    await Clipboard.copy(
+      `https://paste.lol/${prefs.username}/${response.title}`,
+    );
 
     return true;
   }

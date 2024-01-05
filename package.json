@@ -3,7 +3,7 @@
   "name": "omg-lol",
   "title": "omg.lol",
   "description": "Create, read, and update data in your omg.lol account.",
-  "icon": "command-icon.png",
+  "icon": "omg.lol.png",
   "author": "danpalmer",
   "categories": [
     "Communication",
@@ -15,8 +15,16 @@
     {
       "name": "create-paste",
       "title": "Create Paste",
-      "description": "",
-      "mode": "view"
+      "description": "Create a new paste in your omg.lol pastebin with a given title and content.",
+      "mode": "view",
+      "icon": "pastebin.png"
+    },
+    {
+      "name": "create-paste-clipboard",
+      "title": "Create Paste from Clipboard",
+      "description": "Create a new paste in your omg.lol pastebin with the current clipboard content and a random title.",
+      "mode": "no-view",
+      "icon": "pastebin.png"
     }
   ],
   "preferences": [
