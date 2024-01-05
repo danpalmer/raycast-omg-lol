@@ -5,6 +5,7 @@ import {
   showHUD,
   PopToRootType,
 } from "@raycast/api";
+import { useForm, FormValidation } from "@raycast/utils";
 import { useState } from "react";
 import { POST } from "./common/api";
 import { Clipboard } from "@raycast/api";
@@ -20,15 +21,9 @@ interface FormValues {
 }
 
 export default function Command() {
-  const [titleError, setTitleError] = useState<string | undefined>();
-  const [contentError, setContentError] = useState<string | undefined>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  async function createPaste(values: FormValues): Promise<boolean> {
-    if (!validateTitle(values.title) || !validateContent(values.content)) {
-      return false;
-    }
-
+  async function createPaste(values: FormValues): Promise<void> {
     setIsLoading(true);
 
     const response: PasteCreateResponse = await POST("pastebin", {
@@ -46,41 +41,26 @@ export default function Command() {
     await Clipboard.copy(
       `https://paste.lol/${prefs.username}/${response.title}`,
     );
-
-    return true;
   }
 
-  function validateTitle(title: string | undefined): boolean {
-    if (!title) {
-      setTitleError("Title is required");
-      return false;
-    }
-    if (pasteTitleRegex.test(title) === false) {
-      setTitleError("A-Z, a-z, 0-9, -, _, .");
-      return false;
-    }
-    return true;
-  }
-
-  function clearTitleError(title: string) {
-    if (validateTitle(title)) {
-      setTitleError(undefined);
-    }
-  }
-
-  function validateContent(content: string | undefined) {
-    if (!content) {
-      setContentError("Content is required");
-      return false;
-    }
-    return true;
-  }
-
-  function clearContentError(content: string) {
-    if (validateContent(content)) {
-      setContentError(undefined);
-    }
-  }
+  const { handleSubmit, itemProps } = useForm<FormValues>({
+    onSubmit: createPaste,
+    validation: {
+      title: (value) => {
+        if (!value) {
+          return "Title is required";
+        }
+        if (pasteTitleRegex.test(value) === false) {
+          return "A-Z, a-z, 0-9, -, _, .";
+        }
+      },
+      content: (value) => {
+        if (!value) {
+          return "Content is required";
+        }
+      },
+    },
+  });
 
   return (
     <Form
@@ -88,31 +68,31 @@ export default function Command() {
       isLoading={isLoading}
       actions={
         <ActionPanel>
-          <Action.SubmitForm
-            title="Create"
-            onSubmit={(values) => createPaste(values as FormValues)}
-          />
+          <Action.SubmitForm title="Create" onSubmit={handleSubmit} />
         </ActionPanel>
       }
     >
       <Form.TextField
-        id="title"
         title="Title"
-        placeholder="...uhhhh"
-        error={titleError}
-        autoFocus
-        onBlur={(event) => validateTitle(event.target.value)}
-        onChange={(value) => clearTitleError(value)}
+        placeholder=""
+        info={
+          "Slug by which this paste will be accessible. Alphanumeric, with dashes, underscores, and periods."
+        }
+        {...itemProps.title}
       />
       <Form.TextArea
-        id="content"
         title="Content"
-        placeholder="something something paste"
-        error={contentError}
-        onBlur={(event) => validateContent(event.target.value)}
-        onChange={(value) => clearContentError(value)}
+        placeholder=""
+        info={"Text content of the paste"}
+        {...itemProps.content}
       />
-      <Form.Checkbox id="listed" label="Listed" defaultValue={false} />
+      <Form.Checkbox
+        label="Listed"
+        info={
+          "Whether this paste should be publicly listed on your pastebin. This does not prevent others from guessing the title and accessing the paste."
+        }
+        {...itemProps.listed}
+      />
     </Form>
   );
 }

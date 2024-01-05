@@ -1,4 +1,4 @@
-export const generateRandomTitle = (): string => {
+export function generateRandomTitle(): string {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let result = "";
     for (let i = 0; i < 6; i++) {
