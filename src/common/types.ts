@@ -1,43 +1,41 @@
 // Common types
 export interface WithMessage {
-    message: string;
+  message: string;
 }
 
 // Core types
 export interface Paste {
-    title: string;
-    content: string;
-    modified_on: number;
-    listed: number | undefined;
+  title: string;
+  content: string;
+  modified_on: number;
+  listed: number | undefined;
 }
 
 export interface PURL {
-    name: string;
-    url: string;
-    counter: number | undefined;
-    listed: number | undefined;
+  name: string;
+  url: string;
+  counter: number | undefined;
+  listed: number | undefined;
 }
 
 // Request types
 export interface PasteCreateResponse extends WithMessage {
-    title: string;
+  title: string;
 }
 
-export interface PasteDeleteResponse extends WithMessage {
-}
+export interface PasteDeleteResponse extends WithMessage {}
 
-export interface PasteListResponse  extends WithMessage {
-    pastebin: Paste[];
+export interface PasteListResponse extends WithMessage {
+  pastebin: Paste[];
 }
 
 export interface PURLCreateResponse extends WithMessage {
-    name: string;
-    url: string;
+  name: string;
+  url: string;
 }
 
-export interface PURLDeleteResponse extends WithMessage {
-}
+export interface PURLDeleteResponse extends WithMessage {}
 
 export interface PURLListResponse extends WithMessage {
-    purls: PURL[];
+  purls: PURL[];
 }
