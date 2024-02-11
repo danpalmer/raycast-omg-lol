@@ -1,10 +1,10 @@
 import {
-  ActionPanel,
-  Form,
   Action,
-  showHUD,
-  PopToRootType,
+  ActionPanel,
   Clipboard,
+  Form,
+  PopToRootType,
+  showHUD,
 } from "@raycast/api";
 import { useForm } from "@raycast/utils";
 import { useState } from "react";
@@ -19,6 +19,9 @@ interface FormValues {
   external_url: string;
   skip_mastodon_post: boolean;
 }
+
+const externalURLRegex =
+  /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
 
 export default function Command() {
   const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +64,7 @@ export default function Command() {
         }
       },
       external_url: (value) => {
-        if (value && !value.startsWith("http")) {
+        if (value && externalURLRegex.test(value) === false) {
           return "External link must be a valid URL";
         }
       },
@@ -98,7 +101,7 @@ export default function Command() {
       />
       <Form.Checkbox
         label="Share to social.lol"
-        info="Whether this status should be cross-posted to social.lol."
+        info="Cross-post to social.lol."
         defaultValue={true}
         {...itemProps.skip_mastodon_post}
       />
