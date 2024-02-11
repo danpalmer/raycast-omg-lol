@@ -101,7 +101,7 @@ export default function Command() {
       />
       <Form.Checkbox
         label="Share to social.lol"
-        info="Cross-post to social.lol."
+        info="Cross-post to social.lol"
         defaultValue={true}
         {...itemProps.skip_mastodon_post}
       />
