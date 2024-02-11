@@ -1,7 +1,7 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "omg-lol",
-  "title": "Omg.lol",
+  "title": "omg.lol",
   "description": "Create, read, and update data in your omg.lol account.",
   "icon": "omg.lol.png",
   "author": "danpalmer",
@@ -21,7 +21,7 @@
     },
     {
       "name": "create-paste-clipboard",
-      "title": "Create Paste From Clipboard",
+      "title": "Create Paste from Clipboard",
       "description": "Create a new paste in your omg.lol pastebin with the current clipboard content and a random title.",
       "mode": "no-view",
       "icon": "pastebin.png"
@@ -46,13 +46,6 @@
       "description": "View PURLs in your omg.lol account.",
       "mode": "view",
       "icon": "purl.png"
-    },
-    {
-      "name": "create-status",
-      "title": "Create Status",
-      "description": "Create a new status.lol post",
-      "mode": "no-view",
-      "icon": "status.png"
     }
   ],
   "preferences": [
@@ -65,18 +58,17 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.67.1",
-    "@raycast/utils": "^1.12.4",
-    "node-fetch": "^3.3.2",
-    "unicode-emoji-utils": "^1.2.0"
+    "@raycast/api": "^1.64.4",
+    "@raycast/utils": "^1.10.1",
+    "node-fetch": "^3.3.2"
   },
   "devDependencies": {
-    "@raycast/eslint-config": "^1.0.8",
-    "@types/node": "^20.11.17",
-    "@types/react": "^18.2.55",
-    "eslint": "^8.56.0",
-    "prettier": "^3.2.5",
-    "typescript": "^5.3.3"
+    "@raycast/eslint-config": "^1.0.6",
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.27",
+    "eslint": "^8.51.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
   },
   "scripts": {
     "build": "ray build -e dist",
