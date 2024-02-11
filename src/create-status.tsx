@@ -1,10 +1,10 @@
 import {
-  Action,
   ActionPanel,
-  Clipboard,
   Form,
-  PopToRootType,
+  Action,
   showHUD,
+  PopToRootType,
+  Clipboard,
 } from "@raycast/api";
 import { useForm } from "@raycast/utils";
 import { useState } from "react";
@@ -74,31 +74,31 @@ export default function Command() {
       isLoading={isLoading}
       actions={
         <ActionPanel>
-          <Action.SubmitForm title="Create" onSubmit={handleSubmit} />
+          <Action.SubmitForm title="Post" onSubmit={handleSubmit} />
         </ActionPanel>
       }
     >
       <Form.TextField
         title="Emoji"
         placeholder="✨"
-        info={"Press Fn+E to open emoji picker"}
+        info="Press Fn+E to open emoji picker"
         {...itemProps.emoji}
       />
       <Form.TextArea
         title="Content"
         placeholder=""
-        info={"Status message"}
+        info="Status message"
         {...itemProps.content}
       />
       <Form.TextField
         title="External link"
         placeholder="https://omg.lol"
-        info={"Link to another resource"}
-        {...itemProps.content}
+        info="Link to another resource"
+        {...itemProps.external_url}
       />
       <Form.Checkbox
         label="Share to social.lol"
-        info={"Whether this status should be cross-posted to social.lol."}
+        info="Whether this status should be cross-posted to social.lol."
         defaultValue={true}
         {...itemProps.skip_mastodon_post}
       />
