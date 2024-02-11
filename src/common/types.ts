@@ -1,5 +1,6 @@
 // Common types
 export interface WithMessage {
+  id: string;
   message: string;
 }
 
@@ -25,6 +26,13 @@ export interface Account {
   };
 }
 
+export interface Status {
+  address: string;
+  created: number;
+  emoji: string;
+  content: string;
+}
+
 // Request types
 export interface PasteCreateResponse extends WithMessage {
   title: string;
@@ -45,4 +53,16 @@ export interface PURLDeleteResponse extends WithMessage {}
 
 export interface PURLListResponse extends WithMessage {
   purls: PURL[];
+}
+
+export interface StatusCreateResponse extends WithMessage {
+  status: string;
+  url: string;
+  external_url: string;
+}
+
+export interface StatusDeleteResponse extends WithMessage {}
+
+export interface StatusListResponse extends WithMessage {
+  status: Status[];
 }
